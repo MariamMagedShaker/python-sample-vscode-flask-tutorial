@@ -1,4 +1,4 @@
-node('java'){
+node{
     def XYZ='Hello ITI'
     checkout scm
 
