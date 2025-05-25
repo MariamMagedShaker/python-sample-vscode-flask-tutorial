@@ -3,7 +3,7 @@ node{
     checkout scm
 
     stage('build Docker image'){
-        sh ''' echo "${XYZ}" '''
+        sh "echo '${XYZ}' "
         sh "docker build -t mariam191/python_app:v${BUILD_NUMBER} ."
 
     }
