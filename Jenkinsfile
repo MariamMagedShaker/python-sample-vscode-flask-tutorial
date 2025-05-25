@@ -1,13 +1,13 @@
 pipeline{
     agent any
     environment{
-        XYZ='Hello ITI'
+       def XYZ='Hello ITI'
         
     }
     stages{
         stage("build Docker image"){
             steps{
-                sh "echo '$(XYZ)'"
+                sh ''' echo "${XYZ}" '''
                 sh "docker build -t mariam191/python_app:v${BUILD_NUMBER} ."
             }
         }
