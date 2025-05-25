@@ -1,9 +1,8 @@
 pipeline{
-    agent{
-        label "java"
-    }
+    agent any
     environment{
-        XYZ='ITI ITI ITI'
+        XYZ='Hello ITI'
+        
     }
     stages{
         stage("build Docker image"){
