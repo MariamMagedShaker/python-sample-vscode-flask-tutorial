@@ -22,7 +22,6 @@ pipeline{
                 script{
                     // sayHello "Mero!!!!!!!"
                     def ipresult = vmip()
-                    
                     sh "echo ${ipresult}"
 
                     def dockerx = new org.ITI.docker()
@@ -35,7 +34,7 @@ pipeline{
         stage("push java app image"){
             steps{
                  script{
-                    sayHello("Mero!!!!!!!")
+                    sayHello "Mero!!!!!!!"
                     // def VMIP = vmip()
                     // sh "echo ${VMIP}"
 
