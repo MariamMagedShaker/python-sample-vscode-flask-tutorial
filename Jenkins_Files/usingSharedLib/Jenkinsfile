@@ -21,7 +21,7 @@ pipeline{
                 
                 script{
                     // sayHello "Mero!!!!!!!"
-                    def VMIP = vmip()
+                    def VM_IP = vmip()
                     sh "echo ${VMIP}"
 
                     def dockerx = new org.ITI.docker()
