@@ -21,8 +21,8 @@ pipeline{
                 
                 script{
                     // sayHello "Mero!!!!!!!"
-                    def VM_IP = vmip()
-                    sh "echo ${VM_IP}"
+                    def ip_result = vmip()
+                    sh "echo ${ip_result}"
 
                     def dockerx = new org.ITI.docker()
                     dockerx.build("mariam191/python_app", "${BUILD_NUMBER}")
