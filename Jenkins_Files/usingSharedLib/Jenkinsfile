@@ -20,8 +20,9 @@ pipeline{
                 sh ''' echo "${XYZ}" '''
                 
                 script{
-                    def VMIP = vmip()
-                    sh "echo ${VMIP}"
+                    // def VMIP = vmip()
+                    // sh "echo ${VMIP}"
+
                     def dockerx = new org.ITI.docker()
                     dockerx.build("mariam191/python_app", "${BUILD_NUMBER}")
                 }
@@ -32,7 +33,8 @@ pipeline{
         stage("push java app image"){
             steps{
                  script{
-                    sayHello("Mero!!!!!!!")
+
+                    sayHello "Mero!!!!!!!"
 
                     def dockerx = new org.ITI.docker()
                     dockerx.login("${DOCKER_USER}", "${DOCKER_PASS}")
