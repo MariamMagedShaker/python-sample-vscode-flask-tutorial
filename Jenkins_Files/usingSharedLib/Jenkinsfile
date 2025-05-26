@@ -1,3 +1,4 @@
+@Library('libx')
 pipeline{
 
     agent any
@@ -14,15 +15,25 @@ pipeline{
      
         stage("build Docker image"){
             steps{
+                
                 sh ''' echo "${XYZ}" '''
-                sh "docker build -t mariam191/python_app:v${BUILD_NUMBER} ."
+                
+                script{
+                    def dockerx = new org.ITI.docker()
+                    dockerx.build("mariam191/python_app", "${BUILD_NUMBER}")
+                }
+                
             }
         }
 
         stage("push java app image"){
             steps{
-                sh "docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
-                sh "docker push mariam191/python_app:v${BUILD_NUMBER}"
+                 script{
+                    def dockerx = new org.ITI.docker()
+                    dockerx.login("${DOCKER_USER}", "${DOCKER_PASS}")
+                    dockerx.push("mariam191/python_app", "${BUILD_NUMBER}")
+                }
+                
                 
             }
         }
