@@ -31,7 +31,7 @@ pipeline{
             }
         }
 
-        stage("push java app image"){
+        stage("push Python app image"){
             steps{
                  script{
                     sayHello "Mero!!!!!!!"
